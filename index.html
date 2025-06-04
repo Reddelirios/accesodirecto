@@ -27,46 +27,23 @@
       margin-bottom: 10px;
     }
     p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-    .status {
-      margin-top: 10px;
-      font-style: italic;
-      color: #128c7e;
-    }
-    button {
-      background-color: #25d366;
-      color: white;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #1ebd5a;
+      font-size: 1.2rem;
+      margin-top: 0;
+      font-weight: bold;
     }
   </style>
   <script>
-    function redirigir() {
-      const estado = document.getElementById("estado");
-      const presione = document.getElementById("presione");
-      estado.textContent = "Redireccionando a WhatsApp.";
-      presione.style.display = "block"; // mostrar PRESIONE CONTINUAR
+    window.onload = function() {
       setTimeout(function() {
         const mensaje = encodeURIComponent("Hola, quiero info para jugar mi nombre es");
         window.location.href = "https://wa.me/5493644270416?text=" + mensaje;
       }, 2000);
-    }
+    };
   </script>
 </head>
 <body>
   <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  <h1>USTED ESTÁ YENDO A NUESTRO WHATSAPP</h1>
-  <p id="presione">PRESIONE CONTINUAR</p>
-  <button onclick="redirigir()">CONTINUAR</button>
-  <p id="estado" class="status"></p>
+  <h1>Redireccionando a WhatsApp</h1>
+  <p>PRESIONE CONTINUAR</p>
 </body>
 </html>
