@@ -2,48 +2,52 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redireccionando a WhatsApp Redireccionando PRESIONE CONTINUAR...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redireccionando a WhatsApp</title>
   <style>
     body {
       background-color: #e5f6ee;
-      font-family: Arial, sans-serif;
       color: #075e54;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
+      height: 100vh;
+      margin: 0;
       padding: 20px;
     }
     .whatsapp-icon {
       width: 80px;
       margin-bottom: 20px;
     }
-    .loading {
-      font-size: 1.2rem;
-      margin-top: 10px;
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
-    .button {
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    button {
       background-color: #25d366;
       color: white;
       padding: 12px 24px;
+      font-size: 1rem;
       border: none;
       border-radius: 25px;
-      font-size: 1rem;
       cursor: pointer;
-      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
-    .button:hover {
+    button:hover {
       background-color: #1ebd5a;
     }
   </style>
   <script>
-    function continuar() {
-      document.getElementById("mensaje").textContent = "Redirigiendo a WhatsApp, por favor espere...";
-      setTimeout(function () {
+    function redirigir() {
+      document.getElementById("mensaje").textContent = "Redireccionando a WhatsApp...";
+      setTimeout(function() {
         const mensaje = encodeURIComponent("Hola, quiero info para jugar mi nombre es");
         window.location.href = "https://wa.me/5493644270416?text=" + mensaje;
       }, 2000);
@@ -51,9 +55,9 @@
   </script>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-  <h1>USTED ESTÁ YENDO A NUESTRO WHATSAPP</h1>
-  <p class="loading" id="mensaje">PRESIONE CONTINUAR.</p>
-  <button class="button" onclick="continuar()">CONTINUAR</button>
+  <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  <h1>Redireccionando a WhatsApp</h1>
+  <p id="mensaje">PRESIONE CONTINUAR</p>
+  <button onclick="redirigir()">CONTINUAR</button>
 </body>
 </html>
