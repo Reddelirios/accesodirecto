@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redireccionando a WhatsApp...</title>
+  <style>
+    body {
+      background-color: #e5f6ee;
+      font-family: Arial, sans-serif;
+      color: #075e54;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .whatsapp-icon {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    .loading {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .button {
+      background-color: #25d366;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #1ebd5a;
+    }
+  </style>
+  <script>
+    function continuar() {
+      document.getElementById("mensaje").textContent = "Redirigiendo a WhatsApp, por favor espere...";
+      setTimeout(function () {
+        const mensaje = encodeURIComponent("Hola, quiero info para jugar mi nombre es");
+        window.location.href = "https://wa.me/5493644270416?text=" + mensaje;
+      }, 2000);
+    }
+  </script>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+  <h1>USTED ESTÁ YENDO A NUESTRO WHATSAPP</h1>
+  <p class="loading" id="mensaje">PRESIONE CONTINUAR.</p>
+  <button class="button" onclick="continuar()">CONTINUAR</button>
+</body>
+</html>
