@@ -1,64 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redireccionando a WhatsApp</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #e5ddd5;
+      background-color: #e5f6ee;
+      color: #075e54;
+      font-family: Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-    .container {
       text-align: center;
-      background-color: #25d366;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      color: white;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
-    .container h1 {
+    .whatsapp-icon {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    h1 {
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
-    .loader {
-      margin-top: 15px;
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid white;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin-left: auto;
-      margin-right: auto;
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .status {
+      margin-top: 10px;
+      font-style: italic;
+      color: #128c7e;
+    }
+    button {
+      background-color: #25d366;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1ebd5a;
     }
   </style>
+  <script>
+    function redirigir() {
+      const estado = document.getElementById("estado");
+      const presione = document.getElementById("presione");
+      estado.textContent = "Redireccionando a WhatsApp.";
+      presione.style.display = "block"; // mostrar PRESIONE CONTINUAR
+      setTimeout(function() {
+        const mensaje = encodeURIComponent("Hola, quiero info para jugar mi nombre es");
+        window.location.href = "https://wa.me/5493644270416?text=" + mensaje;
+      }, 2000);
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Redireccionando a WhatsApp...</h1>
-    <p>Por favor espera un momento</p>
-    <div class="loader"></div>
-  </div>
-
-  <script>
-    setTimeout(function() {
-      const numero = '5493644270416';
-      const mensaje = 'Hola, quiero info para jugar mi nombre es';
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-      window.location.href = url;
-    }, 2000); // 2 segundos
-  </script>
+  <img class="whatsapp-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  <h1>USTED ESTÁ YENDO A NUESTRO WHATSAPP</h1>
+  <p id="presione">PRESIONE CONTINUAR</p>
+  <button onclick="redirigir()">CONTINUAR</button>
+  <p id="estado" class="status"></p>
 </body>
 </html>
